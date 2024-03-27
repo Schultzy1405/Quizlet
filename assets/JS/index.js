@@ -28,7 +28,24 @@ $(document).ready(function () {
         });
         submitButton.addEventListener("click", submitModalForm);
 });
-
+const getJoke = function() {
+    const jokeApi = 'https://api.chucknorris.io/jokes/random'
+    fetch(jokeApi)
+    .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+    // Handle the data received from the API
+  })
+  .catch(error => {
+    console.error('There was a problem with your fetch operation:', error);
+  });
+}
+getJoke()
 
 function submitModalForm(event) {
     console.log("jbfdj");
