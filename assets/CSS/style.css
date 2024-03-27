@@ -17,6 +17,14 @@ body {
     
 }
 
+.dark {
+        background-color: black;
+}
+
+.light {
+        background-color: white;
+}
+
 .header-container{
     display: flex;
     justify-content: space-between;
