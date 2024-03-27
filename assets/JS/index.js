@@ -48,12 +48,13 @@ const getJoke = function() {
 getJoke()
 
 function submitModalForm(event) {
-    console.log("jbfdj");
+    event.preventDefault();
     const userName = userNameInput.val();
     console.log(userName);
     const category = categoryInput.val();
     console.log(category); // we got ID of category. we can use it to get a questions
     const numberOfQuestions = numberOfQuestionsInput.val();
     console.log(numberOfQuestions);
+    window.location.href = "quiz.html"
 }
 

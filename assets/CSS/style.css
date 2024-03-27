@@ -7,14 +7,15 @@
 
 body {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 100vh;
 }
+
 #get-started {
     height: 100px;
-    width: 300px;
-    
+    width: 300px; 
+    margin-left: 50px;
 }
 
 .header-container{
