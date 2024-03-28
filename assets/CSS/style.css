@@ -18,6 +18,14 @@ body {
     margin-left: 50px;
 }
 
+.dark {
+        background-color: black;
+}
+
+.light {
+        background-color: white;
+}
+
 .header-container{
     display: flex;
     justify-content: space-between;
