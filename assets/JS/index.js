@@ -44,12 +44,34 @@ const getJoke = function() {
 getJoke()
 
 function submitModalForm(event) {
+    event.preventDefault();
     const userName = userNameInput.val();
     console.log(userName);
     const category = categoryInput.val();
     console.log(category); // we got ID of category. we can use it to get a questions
     const numberOfQuestions = numberOfQuestionsInput.val();
     console.log(numberOfQuestions);
+
+    if (verifyFields()) {
+        // If fields are not filled, do not proceed further
+        return;
+    }
+
     window.location.href = "quiz.html"
 }
 
+
+function verifyFields() {
+    let usernameIsEmpty = userNameInput.val() === "";
+    let categoryIsEmpty = categoryInput.val() === "";
+    let numberOfQuestionsIsEmpty = numberOfQuestionsInput.val() === "";
+  
+  
+    let alertMessage = `Please fill out all fields`;
+    
+    if(usernameIsEmpty || categoryIsEmpty || numberOfQuestionsIsEmpty){
+      alert(alertMessage);
+      return true;
+    }
+    return false;
+  }
