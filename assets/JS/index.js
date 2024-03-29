@@ -27,20 +27,17 @@ $(document).ready(function () {
 const getJoke = function() {
     const jokeApi = 'https://api.chucknorris.io/jokes/random'
     fetch(jokeApi)
-    .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  })
-  .then(data => {
-    console.log(data);
-    // Handle the data received from the API
-  })
-  .catch(error => {
+    .then ((response) => {
+        return response.json();
+    })
+    .then((data) => {
+    console.log(data.value);
+    })
+    .catch(error => {
     console.error('There was a problem with your fetch operation:', error);
-  });
+    });
 }
+
 getJoke()
 
 function submitModalForm(event) {

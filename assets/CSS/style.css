@@ -40,7 +40,6 @@ body {
 
 #joke{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    
+    align-items: end;
+    justify-content: space-between;
 }
