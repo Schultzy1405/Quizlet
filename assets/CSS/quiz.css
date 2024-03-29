@@ -3,51 +3,73 @@
     padding: 0;
     margin: 0;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
- #quiz {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #66ebf0;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(198, 222, 60, 0.2);
-  }
 
+  }
+#quiz {
+    margin: 1px 30px 0px 30px;
+    padding: 20px;
+    background-color: #359c6c;
+    border-style: solid;
+    border-radius: 0px 0px 15px 15px;
+    box-shadow: 0 0 10px rgba(198, 222, 60, 0.2);
+}
+
+main {
+  height: 100vh;
+  background-color: beige;
+}
+
+#catDisplay {
+  border-bottom: solid;
+  text-align: center;
+  margin-top: 10px;
+}
+
+ul  {
+  list-style-type: circle;
+  display: flex;
+  height: 50px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 250px;
+  align-items: center;
+}
 
 h1{
-    text-align: center;
-  color: #333333;
+  text-align: center;
+  color: #000000;
+  border-bottom: double;
 }
 #options {
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(2, 1fr);
-  }
+}
 
 button{
-    font-family: Roboto, sans-serif;
-font-weight: 0;
-font-size: 14px;
-color: #fff;
-background: linear-gradient(90deg, #0066CC 0%, #c500cc 100%);
-padding: 10px 30px;
-border: 2px solid #0066cc;
-box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
-border-radius: 50px;
-transition : 1000ms;
-transform: translateY(0);
-display: flex;
-flex-direction: row;
-align-items: center;
+  font-family: Roboto, sans-serif;
+  font-weight: 0;
+  font-size: 14px;
+  color: #fff;
+  background: linear-gradient(90deg, #0066CC 0%, #c500cc 100%);
+  padding: 10px 30px;
+  border: 2px solid #0066cc;
+  box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+  border-radius: 50px;
+  transition : 1000ms;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 button:hover {
     .btn:hover{
-        transition : 1000ms;
-        padding: 10px 50px;
-        transform : translateY(-0px);
-        background: linear-gradient(90deg, #0066CC 0%, #c500cc 100%);
-        color: #0066cc;
-        border: solid 2px #0066cc;
-        }
+    transition : 1000ms;
+    padding: 10px 50px;
+    transform : translateY(-0px);
+    background: linear-gradient(90deg, #0066CC 0%, #c500cc 100%);
+    color: #0066cc;
+    border: solid 2px #0066cc;
+    }
 }

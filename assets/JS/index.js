@@ -44,6 +44,9 @@ const getJoke = function() {
 getJoke()
 
 function submitModalForm(event) {
+
+    event.preventDefault();
+
     const userName = userNameInput.val();
     console.log(userName);
     const category = categoryInput.val();

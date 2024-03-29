@@ -7,7 +7,6 @@
 
 body {
     display: flex;
-<<<<<<< Updated upstream
     justify-content: flex-start;
     align-items: center;
     height: 100vh;
@@ -17,16 +16,6 @@ body {
     height: 100px;
     width: 300px; 
     margin-left: 50px;
-=======
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-#get-started {
-    height: 100px;
-    width: 300px;
-    
->>>>>>> Stashed changes
 }
 
 .dark {
@@ -40,7 +29,6 @@ body {
 .header-container{
     display: flex;
     justify-content: space-between;
-<<<<<<< Updated upstream
 }
 
 .jokes-container{
@@ -55,6 +43,4 @@ body {
     align-items: center;
     justify-content: center;
     
-=======
->>>>>>> Stashed changes
 }
