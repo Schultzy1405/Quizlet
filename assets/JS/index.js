@@ -13,16 +13,27 @@ $(document).ready(function () {
         .then(function (data) {
             console.log(data);
             const categoryArray = data.trivia_categories;
-            $.each(categoryArray, function (i) {
+            categoryArray.forEach(function(category) {
                 categoryInput.append(
-                    $('<option></option>').val(categoryArray[i].id).html(categoryArray[i].name)
+                  $('<option></option>').val(category.id).html(category.name)
                 );
             });
             $('select').formSelect();
-        });
-        submitButton.addEventListener("click", submitModalForm);
-        
-});
+        })
+        .catch(function (error) {
+          console.error('Error fetching categories', error)
+        })
+        categoryInput.on('change', function () {
+          const selectedCategory = $(categoryInput).val();
+          localStorage.setItem('selectedCategory', selectedCategory);
+      });
+      $('.submit').on('click', submitModalForm);
+    });
+    
+        function submitModalForm(event) {
+          event.preventDefault();
+          // Your form submission logic here
+      }
 
 const getJoke = function() {
     const jokeApi = 'https://api.chucknorris.io/jokes/random'
