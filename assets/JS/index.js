@@ -23,6 +23,7 @@ $(document).ready(function () {
         submitButton.addEventListener("click", submitModalForm);
         
 });
+
 const getJoke = function() {
     const jokeApi = 'https://api.chucknorris.io/jokes/random'
     fetch(jokeApi)
@@ -43,13 +44,12 @@ const getJoke = function() {
 getJoke()
 
 function submitModalForm(event) {
-    event.preventDefault();
     const userName = userNameInput.val();
     console.log(userName);
     const category = categoryInput.val();
     console.log(category); // we got ID of category. we can use it to get a questions
     const numberOfQuestions = numberOfQuestionsInput.val();
     console.log(numberOfQuestions);
-    
     window.location.href = "quiz.html"
 }
+
