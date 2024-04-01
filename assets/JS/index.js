@@ -1,4 +1,4 @@
-const submitButton = document.querySelector(".submit");
+const submitButton = $('.submit')
 const userNameInput = $('#username');
 const categoryInput = $('#category-select');
 const numberOfQuestionsInput = $('#number-of-guestions');
@@ -29,11 +29,6 @@ $(document).ready(function () {
       });
       $('.submit').on('click', submitModalForm);
     });
-    
-        function submitModalForm(event) {
-          event.preventDefault();
-          // Your form submission logic here
-      }
 
 const getJoke = function() {
     const jokeApi = 'https://api.chucknorris.io/jokes/random'
