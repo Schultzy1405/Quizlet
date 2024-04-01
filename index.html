@@ -35,6 +35,7 @@
                     </div>
 
                     <div class="row">
+
                         <form class="col s12">
                             <div class="row">
                                 <div class="input-field col s6">
@@ -57,6 +58,24 @@
                                 </div>
                             </div>
                         </form>
+
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input id="username" type="text" class="validate">
+                            <label for="username">User Name</label>
+                        </div>
+
+                        <div class="input-field col s12">
+                            <select id="category-select">
+                                <option value="" disabled selected>Choose your option</option>
+                            </select>
+                            <label>Category</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="number-of-questions" type="number" class="validate" min="1" max="50">
+                            <label for="number-of-questions">Number of questions 1-50</label>
+                        </div>
+
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -67,12 +86,28 @@
             </div>
         </div>
 
+
         <div class="jokes-container">
             <button class="joke-button" onclick="generateJoke();">New Chuck Norris Joke</button>
             <div class="joke">
                 <p id="joke-category"></p>
+
+    <div class="joke">
+        <button onclick="getJoke();" id="joke" data-target="modal1" class="btn modal-trigger">New Chuck Norris Joke</button>
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+        <div id="modal1" class="modal bottom-sheet">
+            <div class="modal-content">
+            <h4>Jokey Joke</h4>
+            <p>Display Joke From Console Log</p>
+            </div>
+            <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+
             </div>
         </div>
+          
+        <div class="joke"></div>
     </div>
 
 

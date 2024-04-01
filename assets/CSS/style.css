@@ -6,11 +6,15 @@
 }
 
 body {
+
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
     height: 100vh;
 }
 
 #get-started {
+
     justify-content: center;
     align-items: center;
 }
@@ -19,6 +23,11 @@ body {
 #get-started {
     height: 100px;
     width: 300px;
+
+    height: 100px;
+    width: 300px; 
+    margin-left: 50px;
+
 }
 
 .dark {
@@ -59,6 +68,7 @@ body {
 
 #joke{
     display: flex;
+
     align-items: center;
     justify-content: center;
     height: 100px;
@@ -83,4 +93,5 @@ header {
     justify-content: space-around;
     height: 80vh;
     align-items: center;
+
 }
