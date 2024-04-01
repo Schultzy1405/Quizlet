@@ -1,4 +1,4 @@
-const submitButton = document.querySelector(".submit");
+const submitButton = $('.submit')
 const userNameInput = $('#username');
 const categoryInput = $('#category-select');
 const numberOfQuestionsInput = $('#number-of-guestions');
@@ -13,16 +13,22 @@ $(document).ready(function () {
         .then(function (data) {
             console.log(data);
             const categoryArray = data.trivia_categories;
-            $.each(categoryArray, function (i) {
+            categoryArray.forEach(function(category) {
                 categoryInput.append(
-                    $('<option></option>').val(categoryArray[i].id).html(categoryArray[i].name)
+                  $('<option></option>').val(category.id).html(category.name)
                 );
             });
             $('select').formSelect();
-        });
-        submitButton.addEventListener("click", submitModalForm);
-        
-});
+        })
+        .catch(function (error) {
+          console.error('Error fetching categories', error)
+        })
+        categoryInput.on('change', function () {
+          const selectedCategory = $(categoryInput).val();
+          localStorage.setItem('selectedCategory', selectedCategory);
+      });
+      $('.submit').on('click', submitModalForm);
+    });
 
 const getJoke = function() {
     const jokeApi = 'https://api.chucknorris.io/jokes/random'
