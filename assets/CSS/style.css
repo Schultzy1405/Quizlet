@@ -6,6 +6,7 @@
 }
 
 body {
+
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -13,9 +14,20 @@ body {
 }
 
 #get-started {
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+#get-started {
+    height: 100px;
+    width: 300px;
+
     height: 100px;
     width: 300px; 
     margin-left: 50px;
+
 }
 
 .dark {
@@ -31,16 +43,55 @@ body {
     justify-content: space-between;
 }
 
+
 .jokes-container{
-    width: 100%;
-    padding: 12px;
+    
+    /* padding: 12px;  */
     box-sizing: border-box;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-image: url(../images/jokes.png);
+    height: 100%;
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-quiz{
+    background-image: url(../images/quiz.png);
+    height: 100%;
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #joke{
     display: flex;
+
     align-items: center;
     justify-content: center;
-    
+    height: 100px;
+    width: 300px; 
+}
+
+.joke-button{
+    height: 100px;
+    width: 300px; 
+}
+
+
+header {
+    display: flex;
+    height: 10%;
+    justify-content: end;
+    margin: 5px;
+}
+
+.container-page {
+    display: flex;
+    justify-content: space-around;
+    height: 80vh;
+    align-items: center;
+
 }

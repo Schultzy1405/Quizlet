@@ -33,20 +33,17 @@ $(document).ready(function () {
 const getJoke = function() {
     const jokeApi = 'https://api.chucknorris.io/jokes/random'
     fetch(jokeApi)
-    .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  })
-  .then(data => {
-    console.log(data);
-    // Handle the data received from the API
-  })
-  .catch(error => {
+    .then ((response) => {
+        return response.json();
+    })
+    .then((data) => {
+    console.log(data.value);
+    })
+    .catch(error => {
     console.error('There was a problem with your fetch operation:', error);
-  });
+    });
 }
+
 getJoke()
 
 function submitModalForm(event) {
@@ -59,6 +56,27 @@ function submitModalForm(event) {
     console.log(category); // we got ID of category. we can use it to get a questions
     const numberOfQuestions = numberOfQuestionsInput.val();
     console.log(numberOfQuestions);
+
+    if (verifyFields()) {
+        // If fields are not filled, do not proceed further
+        return;
+    }
+
     window.location.href = "quiz.html"
 }
 
+
+function verifyFields() {
+    let usernameIsEmpty = userNameInput.val() === "";
+    let categoryIsEmpty = categoryInput.val() === "";
+    let numberOfQuestionsIsEmpty = numberOfQuestionsInput.val() === "";
+  
+  
+    let alertMessage = `Please fill out all fields`;
+    
+    if(usernameIsEmpty || categoryIsEmpty || numberOfQuestionsIsEmpty){
+      alert(alertMessage);
+      return true;
+    }
+    return false;
+  }
