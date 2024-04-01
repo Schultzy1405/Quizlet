@@ -62,11 +62,21 @@
         </div>
     </div>
 
-    <div class="jokes-container">
-        <button onclick="generateJoke();">New Chuck Norris Joke</button>
-        <div class="joke">
-            <p id="joke-category"></p>
+    <div class="joke">
+        <button onclick="getJoke();" id="joke" data-target="modal1" class="btn modal-trigger">New Chuck Norris Joke</button>
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+        <div id="modal1" class="modal bottom-sheet">
+            <div class="modal-content">
+            <h4>Jokey Joke</h4>
+            <p>Display Joke From Console Log</p>
+            </div>
+            <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
         </div>
+          
+        <div class="joke"></div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
