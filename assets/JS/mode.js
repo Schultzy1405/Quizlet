@@ -1,7 +1,7 @@
 
 
 
-const prefersDarkTheme = window.matchMedia('(prefers-color-scheme: dark)');
+const prefersDarkTheme = window.matchMedia('(prefers-color-scheme: light)');
 
 console.log('prefersDarkTheme',prefersDarkTheme);
 console.log('prefersDarkTheme 2', window.matchMedia('(prefers-color-scheme'));
