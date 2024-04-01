@@ -7,34 +7,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <dark-mode></dark-mode>
-        <dark-mode light="Dark" dark="Light"></dark-mode>
-        <dark-mode dark="Dark" light="Light" style="border: 1px solid red; font-size: 12px;"></dark-mode>
+
 
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./assets/CSS/style.css">
-    <title>Document</title>
+    <title>Quiz</title>
 </head>
 
 <body>
-    <button id="get-started" data-target="modal1" class="btn modal-trigger">Get started</button>
+    <header>
+        <dark-mode>Switcher</dark-mode>
+        <dark-mode light="Dark" dark="Light"></dark-mode>
+        <dark-mode dark="Dark" light="Light" style="border: 1px solid red; font-size: 12px;"></dark-mode>
+    </header>
+    <div class="container-page">
+        <div class="container-quiz">
+            <button id="get-started" data-target="modal1" class="btn modal-trigger">Get started</button>
 
-    <!-- Modal Trigger -->
-    <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
 
-    <!-- Modal Structure -->
-    <div id="modal1" class="modal modal-fixed-footer">
-        <div class="modal-content">
-            <div class="header-container">
-                <h4>Hello!</h4>
-                
-                <i class="modal-close waves-effect waves-green btn-flat material-icons">cancel</i>
-            </div>
-            <!-- <p>A bunch of text</p> -->
-            <div class="row">
-                <form class="col s12">
+            <div id="modal1" class="modal modal-fixed-footer">
+                <div class="modal-content">
+                    <div class="header-container">
+                        <h4>Hello!</h4>
+
+                        <i class="modal-close waves-effect waves-green btn-flat material-icons">cancel</i>
+                    </div>
+
                     <div class="row">
+
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <input id="username" type="text" class="validate">
+                                    <label for="username">User Name</label>
+
+                                </div>
+
+                                <div class="input-field col s12">
+                                    <select id="category-select">
+                                        <option value="" disabled selected>Choose your option</option>
+                                    </select>
+                                    <label>Category</label>
+                                </div>
+                                <div class="input-field col s6">
+
+                                    <input id="number-of-guestions" type="number" class="validate" min="1" max="50">
+                                    <label for="number-of-guestions">Number of questions 1-50</label>
+                                </div>
+                            </div>
+                        </form>
+
                         <div class="input-field col s6">
                             <i class="material-icons prefix">account_circle</i>
                             <input id="username" type="text" class="validate">
@@ -51,16 +75,22 @@
                             <input id="number-of-questions" type="number" class="validate" min="1" max="50">
                             <label for="number-of-questions">Number of questions 1-50</label>
                         </div>
+
                     </div>
-                </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn waves-effect waves-light submit" type="submit" name="action">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
             </div>
         </div>
-        <div class="modal-footer">
-            <button class="btn waves-effect waves-light submit" type="submit" name="action">Submit
-                <i class="material-icons right">send</i>
-            </button>
-        </div>
-    </div>
+
+
+        <div class="jokes-container">
+            <button class="joke-button" onclick="generateJoke();">New Chuck Norris Joke</button>
+            <div class="joke">
+                <p id="joke-category"></p>
 
     <div class="joke">
         <button onclick="getJoke();" id="joke" data-target="modal1" class="btn modal-trigger">New Chuck Norris Joke</button>
@@ -73,19 +103,21 @@
             </div>
             <div class="modal-footer">
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+
             </div>
         </div>
           
         <div class="joke"></div>
     </div>
 
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./assets/JS/index.js"></script>
-    <script src="./assets/JS/mode.js"></script>
-    
+    <!-- <script src="./assets/JS/mode.js"></script> -->
+
 </body>
 
 </html>
