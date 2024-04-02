@@ -64,6 +64,7 @@ const requestUrl = 'https://opentdb.com/api_category.php';
     displayAnswers()
 
 
+
 const questionURL = `https://opentdb.com/api.php?amount=10&category=${adjustedCategoryIndex}`
 
 function displayQuestions() {
@@ -91,3 +92,33 @@ function displayAnswers() {
   </ul>
   `
 }
+
+    function selectAnswer(e) {
+    const selectedOption = e.target;
+    const selectedIndex = parseInt(selectedOption.dataset.index);
+    const answerIndex = quizData[currentQuestion].answerIndex;
+    if (selectedIndex === answerIndex) {
+      score++;
+    }
+  
+    currentQuestion++;
+  
+    if (currentQuestion < quizData.length) {
+      showInfo();
+    } else {
+      showResult();
+    }
+  }
+  function showResult() {
+    // Display result however you want
+    console.log("Quiz Completed! Your Score: " + score);
+  }
+  
+  // Start the quiz
+//showQuestion();
+
+const questions = JSON.parse(localStorage.getItem("questions"));
+const questionNumber = JSON.parse(localStorage.getItem("questionNumber"));
+questions.results[questionNumber]
+console.log(questions)
+
