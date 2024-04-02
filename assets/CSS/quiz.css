@@ -17,6 +17,7 @@
 main {
   height: 100vh;
   background-color: beige;
+  text-align: center;
 }
 
 #cat-display {

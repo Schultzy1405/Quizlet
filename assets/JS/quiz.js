@@ -1,10 +1,10 @@
-const questionElement = document.getElementById("question");
-const optionsElement = document.getElementById("options");
+const questionEl = document.getElementById("question");
+const optionsEl = document.getElementById("option");
 const submitButton = document.getElementById("submit");
 const catDisplay = document.getElementById("cat-display")
-  
-  let currentQuestion = 0;
-  let score = 0;
+
+let currentQuestion = 0;
+let score = 0;
 
 const category = ['General Knowledge',
 'Entertainment: Books',
@@ -56,13 +56,42 @@ const requestUrl = 'https://opentdb.com/api_category.php';
         console.log('Category Name:', categoryName);
 
         catDisplay.textContent = `Category: ${categoryName}`;
-
     }
 
     // Call showInfo after fetching the category data
     showInfo();
+    displayQuestions()
+    displayAnswers()
+
+
+
+const questionURL = `https://opentdb.com/api.php?amount=10&category=${adjustedCategoryIndex}`
+
+function displayQuestions() {
+  const questionURL = `https://opentdb.com/api.php?amount=10&category=${adjustedCategoryIndex}`
+fetch(questionURL)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    const question = data.results.question;
+    ;
+  });
+  questionEl.innerHTML = `
+  <h3>${question}</h3>
+  `
+}
 })
-                   
+function displayAnswers() {
+  optionsEl.innerHTML = `
+  <ul>
+    <li>Opt 1</li>
+    <li>Opt 2</li>
+    <li>Opt 3</li>
+    <li>Opt 4</li>
+  </ul>
+  `
+}
 
     function selectAnswer(e) {
     const selectedOption = e.target;
@@ -92,3 +121,4 @@ const questions = JSON.parse(localStorage.getItem("questions"));
 const questionNumber = JSON.parse(localStorage.getItem("questionNumber"));
 questions.results[questionNumber]
 console.log(questions)
+
