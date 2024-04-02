@@ -45,8 +45,7 @@ body {
 
 
 .jokes-container{
-    
-    /* padding: 12px;  */
+    padding: 12px; 
     box-sizing: border-box;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-image: url(../images/jokes.png);
