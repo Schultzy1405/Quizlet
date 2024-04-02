@@ -2,9 +2,10 @@ const questionEl = document.getElementById("question");
 const optionsEl = document.getElementById("option");
 const submitButton = document.getElementById("submit");
 const catDisplay = document.getElementById("cat-display")
-
+const listAnswers = document.querySelector(".li-answers")
 let currentQuestion = 0;
 let score = 0;
+let adjustedCategoryIndex;
 
 const category = ['General Knowledge',
 'Entertainment: Books',
@@ -47,78 +48,72 @@ const requestUrl = 'https://opentdb.com/api_category.php';
       // Function to display category information
       function showInfo() {
         const catSelected = localStorage.getItem('selectedCategory');
-        console.log('Selected Category ID:', catSelected);
-        
         const adjustedCategoryIndex = parseInt(catSelected) // Adjusted index based on your category array
-        console.log('Adjusted Category Index:', adjustedCategoryIndex);
-
+        localStorage.setItem('adjCatIndex', adjustedCategoryIndex)
         const categoryName = getCategoryNameById(adjustedCategoryIndex);
-        console.log('Category Name:', categoryName);
-
         catDisplay.textContent = `Category: ${categoryName}`;
-    }
-
-    // Call showInfo after fetching the category data
-    showInfo();
-    displayQuestions()
-    displayAnswers()
-
-
-
-const questionURL = `https://opentdb.com/api.php?amount=10&category=${adjustedCategoryIndex}`
-
-function displayQuestions() {
-  const questionURL = `https://opentdb.com/api.php?amount=10&category=${adjustedCategoryIndex}`
-fetch(questionURL)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    const question = data.results.question;
-    ;
-  });
-  questionEl.innerHTML = `
-  <h3>${question}</h3>
-  `
-}
-})
-function displayAnswers() {
-  optionsEl.innerHTML = `
-  <ul>
-    <li>Opt 1</li>
-    <li>Opt 2</li>
-    <li>Opt 3</li>
-    <li>Opt 4</li>
-  </ul>
-  `
-}
-
-    function selectAnswer(e) {
-    const selectedOption = e.target;
-    const selectedIndex = parseInt(selectedOption.dataset.index);
-    const answerIndex = quizData[currentQuestion].answerIndex;
-    if (selectedIndex === answerIndex) {
-      score++;
-    }
+        fetchQuestionsAndAnswers();
+      }
   
-    currentQuestion++;
-  
-    if (currentQuestion < quizData.length) {
+      // Call showInfo after fetching the category data
       showInfo();
-    } else {
-      showResult();
+    });
+
+    function fetchQuestionsAndAnswers() {
+      const adjustedCategoryIndex = localStorage.getItem('adjCatIndex')
+      const questionURL = `https://opentdb.com/api.php?amount=10&category=${adjustedCategoryIndex}`;
+      fetch(questionURL)
+        .then(response => response.json())
+        .then(data => {
+          const questions = data.results;
+          // Display first question and answers
+          displayQuestionAndAnswers(questions[currentQuestion]);
+        })
+        .catch(error => console.error('Error fetching questions:', error));
     }
+
+function displayQuestionAndAnswers(questionData) {
+  questionEl.textContent = questionData.question;
+  const answers = [...questionData.incorrect_answers, questionData.correct_answer];
+  // Shuffle answers randomly
+  answers.sort(() => Math.random() - 0.5);
+  optionsEl.innerHTML = ''; // Clear previous options
+  answers.forEach((answer, index) => {
+    const option = document.createElement('li');
+    option.classList.add('li-answers')
+    option.textContent = answer;
+    option.dataset.index = index;
+    option.addEventListener('click', selectAnswer);
+    optionsEl.appendChild(option);
+  });
+}
+
+function selectAnswer(e) {
+  const selectedOption = e.target;
+  const selectedIndex = parseInt(selectedOption.dataset.index);
+  const answerIndex = selectedIndex === 3 ? selectedIndex : -1; // Assuming correct answer index is always 3
+  if (answerIndex !== -1) {
+    score++;
+    currentQuestion++
   }
-  function showResult() {
-    // Display result however you want
-    console.log("Quiz Completed! Your Score: " + score);
+  currentQuestion++;
+  if (currentQuestion < 10) {
+    fetchQuestionsAndAnswers();
+  } else {
+    showResult();
   }
+}
+
+function showResult() {
+  // Display result however you want
+  console.log("Quiz Completed! Your Score: " + score);
+}
   
   // Start the quiz
 //showQuestion();
 
-const questions = JSON.parse(localStorage.getItem("questions"));
-const questionNumber = JSON.parse(localStorage.getItem("questionNumber"));
-questions.results[questionNumber]
-console.log(questions)
+// const questions = JSON.parse(localStorage.getItem("questions"));
+// const questionNumber = JSON.parse(localStorage.getItem("questionNumber"));
+// questions.results[questionNumber]
+// console.log(questions)
 
