@@ -44,7 +44,9 @@ const getJoke = function() {
     });
 }
 
-function submitModalForm(event) {
+
+
+async function submitModalForm(event) {
 
     event.preventDefault();
 
@@ -60,7 +62,19 @@ function submitModalForm(event) {
         return;
     }
 
-    window.location.href = "quiz.html"
+    //getting questions with answers
+    const requestUrl = `https://opentdb.com/api.php?amount=${numberOfQuestions}&category=${category}&type=multiple`;
+    await fetch(requestUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+          localStorage.setItem('questions', JSON.stringify({questions:data}));
+          localStorage.setItem('questionNumber', 0);
+          console.log('questions')
+      })
+
+      window.location.href = "quiz.html"
 }
 
 

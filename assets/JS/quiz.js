@@ -1,54 +1,119 @@
-const questionElement = document.getElementById("question");
-const optionsElement = document.getElementById("options");
+const questionEl = document.getElementById("question");
+const optionsEl = document.getElementById("option");
 const submitButton = document.getElementById("submit");
-const categoryElement = document.getElementById("category")
+const catDisplay = document.getElementById("cat-display")
+const listAnswers = document.querySelector(".li-answers")
+let currentQuestion = 0;
+let score = 0;
+let adjustedCategoryIndex;
+
+const category = ['General Knowledge',
+'Entertainment: Books',
+ 'Entertainment: Film',
+  'Entertainment: Music',
+   'Entertainment: Musicals & Theatres',
+    'Entertainment: Television',
+     'Entertainment: Video Games',
+      'Entertainment: Board Games',
+       'Science & Nature', 'Science: Computers',
+        'Science: Mathematics', 'Mythology', 'Sports',
+         'Geography',
+          'History',
+           'Politics',
+            'Art',
+             'Celebrities',
+              'Animals',
+               'Vehicles',
+                'Entertainment: Comics',
+                 'Science: Gadgets',
+                  'Entertainment: Japanese Anime & Manga',
+                   'Entertainment: Cartoon & Animations']
+
+const requestUrl = 'https://opentdb.com/api_category.php';
+    fetch(requestUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+          const categories = data.trivia_categories;
+        
+          // Function to get the category name by ID
+        function getCategoryNameById(categoryId) {
+          // Find the category object in the categories array that matches the provided categoryId
+          const categoryObj = categories.find(cat => cat.id === categoryId);
+          // If a matching category object is found, return its name; otherwise, return 'Unknown Category'
+          return categoryObj ? categoryObj.name : 'Unknown Category';
+      }
+
+      // Function to display category information
+      function showInfo() {
+        const catSelected = localStorage.getItem('selectedCategory');
+        const adjustedCategoryIndex = parseInt(catSelected) // Adjusted index based on your category array
+        localStorage.setItem('adjCatIndex', adjustedCategoryIndex)
+        const categoryName = getCategoryNameById(adjustedCategoryIndex);
+        catDisplay.textContent = `Category: ${categoryName}`;
+        fetchQuestionsAndAnswers();
+      }
   
-  let currentQuestion = 0;
-  let score = 0;
-
-  function  showQuestions (){
-    localStorage.getItem('selectedCategory')
-    //
-    // stopped here, do text content and value
-    //
-    const question = quizdata [currentQuestion];
-    questionElement.innerText = question.question;
-
-    optionsElement.innerHTML = "";
-    categoryElement.innerText = `Category: ${question.category}`
-
-    question.options.forEach((option, index) => {
-    const li = document.createElement("li")
-    li.textContent = option;
-    li.dataset.index = index; // Store the index of the option
-    optionsElement.appendChild(li);
+      // Call showInfo after fetching the category data
+      showInfo();
     });
 
-    optionsElement.querySelectorAll("li").forEach((li) => {
-      li.addEventListener("click", selectAnswer);
-    });
-  }
+    function fetchQuestionsAndAnswers() {
+      const adjustedCategoryIndex = localStorage.getItem('adjCatIndex')
+      const questionURL = `https://opentdb.com/api.php?amount=10&category=${adjustedCategoryIndex}`;
+      fetch(questionURL)
+        .then(response => response.json())
+        .then(data => {
+          const questions = data.results;
+          // Display first question and answers
+          displayQuestionAndAnswers(questions[currentQuestion]);
+        })
+        .catch(error => console.error('Error fetching questions:', error));
+    }
 
-    function selectAnswer(e) {
-    const selectedOption = e.target;
-    const selectedIndex = parseInt(selectedOption.dataset.index);
-    const answerIndex = quizData[currentQuestion].answerIndex;
-    if (selectedIndex === answerIndex) {
-      score++;
-    }
-  
-    currentQuestion++;
-  
-    if (currentQuestion < quizData.length) {
-      showQuestion();
-    } else {
-      showResult();
-    }
+function displayQuestionAndAnswers(questionData) {
+  questionEl.textContent = questionData.question;
+  const answers = [...questionData.incorrect_answers, questionData.correct_answer];
+  // Shuffle answers randomly
+  answers.sort(() => Math.random() - 0.5);
+  optionsEl.innerHTML = ''; // Clear previous options
+  answers.forEach((answer, index) => {
+    const option = document.createElement('li');
+    option.classList.add('li-answers')
+    option.textContent = answer;
+    option.dataset.index = index;
+    option.addEventListener('click', selectAnswer);
+    optionsEl.appendChild(option);
+  });
+}
+
+function selectAnswer(e) {
+  const selectedOption = e.target;
+  const selectedIndex = parseInt(selectedOption.dataset.index);
+  const answerIndex = selectedIndex === 3 ? selectedIndex : -1; // Assuming correct answer index is always 3
+  if (answerIndex !== -1) {
+    score++;
+    currentQuestion++
   }
-  function showResult() {
-    // Display result however you want
-    console.log("Quiz Completed! Your Score: " + score);
+  currentQuestion++;
+  if (currentQuestion < 10) {
+    fetchQuestionsAndAnswers();
+  } else {
+    showResult();
   }
+}
+
+function showResult() {
+  // Display result however you want
+  console.log("Quiz Completed! Your Score: " + score);
+}
   
   // Start the quiz
 //showQuestion();
+
+// const questions = JSON.parse(localStorage.getItem("questions"));
+// const questionNumber = JSON.parse(localStorage.getItem("questionNumber"));
+// questions.results[questionNumber]
+// console.log(questions)
+
