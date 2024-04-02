@@ -71,6 +71,7 @@ async function submitModalForm(event) {
         .then(function (data) {
           localStorage.setItem('questions', JSON.stringify({questions:data}));
           localStorage.setItem('questionNumber', 0);
+          console.log('questions')
       })
 
       window.location.href = "quiz.html"
