@@ -87,3 +87,8 @@ const requestUrl = 'https://opentdb.com/api_category.php';
   
   // Start the quiz
 //showQuestion();
+
+const questions = JSON.parse(localStorage.getItem("questions"));
+const questionNumber = JSON.parse(localStorage.getItem("questionNumber"));
+questions.results[questionNumber]
+console.log(questions)
