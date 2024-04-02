@@ -1,33 +1,68 @@
 const questionElement = document.getElementById("question");
 const optionsElement = document.getElementById("options");
 const submitButton = document.getElementById("submit");
-const categoryElement = document.getElementById("category")
+const catDisplay = document.getElementById("cat-display")
   
   let currentQuestion = 0;
   let score = 0;
 
-  function  showQuestions (){
-    localStorage.getItem('selectedCategory')
-    //
-    // stopped here, do text content and value
-    //
-    const question = quizdata [currentQuestion];
-    questionElement.innerText = question.question;
+const category = ['General Knowledge',
+'Entertainment: Books',
+ 'Entertainment: Film',
+  'Entertainment: Music',
+   'Entertainment: Musicals & Theatres',
+    'Entertainment: Television',
+     'Entertainment: Video Games',
+      'Entertainment: Board Games',
+       'Science & Nature', 'Science: Computers',
+        'Science: Mathematics', 'Mythology', 'Sports',
+         'Geography',
+          'History',
+           'Politics',
+            'Art',
+             'Celebrities',
+              'Animals',
+               'Vehicles',
+                'Entertainment: Comics',
+                 'Science: Gadgets',
+                  'Entertainment: Japanese Anime & Manga',
+                   'Entertainment: Cartoon & Animations']
 
-    optionsElement.innerHTML = "";
-    categoryElement.innerText = `Category: ${question.category}`
+const requestUrl = 'https://opentdb.com/api_category.php';
+    fetch(requestUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+          const categories = data.trivia_categories;
+        
+          // Function to get the category name by ID
+        function getCategoryNameById(categoryId) {
+          // Find the category object in the categories array that matches the provided categoryId
+          const categoryObj = categories.find(cat => cat.id === categoryId);
+          // If a matching category object is found, return its name; otherwise, return 'Unknown Category'
+          return categoryObj ? categoryObj.name : 'Unknown Category';
+      }
 
-    question.options.forEach((option, index) => {
-    const li = document.createElement("li")
-    li.textContent = option;
-    li.dataset.index = index; // Store the index of the option
-    optionsElement.appendChild(li);
-    });
+      // Function to display category information
+      function showInfo() {
+        const catSelected = localStorage.getItem('selectedCategory');
+        console.log('Selected Category ID:', catSelected);
+        
+        const adjustedCategoryIndex = parseInt(catSelected) // Adjusted index based on your category array
+        console.log('Adjusted Category Index:', adjustedCategoryIndex);
 
-    optionsElement.querySelectorAll("li").forEach((li) => {
-      li.addEventListener("click", selectAnswer);
-    });
-  }
+        const categoryName = getCategoryNameById(adjustedCategoryIndex);
+        console.log('Category Name:', categoryName);
+
+        catDisplay.textContent = `Category: ${categoryName}`;
+
+    }
+
+    // Call showInfo after fetching the category data
+    showInfo();
+})
+                   
 
     function selectAnswer(e) {
     const selectedOption = e.target;
@@ -40,7 +75,7 @@ const categoryElement = document.getElementById("category")
     currentQuestion++;
   
     if (currentQuestion < quizData.length) {
-      showQuestion();
+      showInfo();
     } else {
       showResult();
     }
