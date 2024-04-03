@@ -44,10 +44,6 @@ const getJoke = function() {
     });
 }
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 
 async function submitModalForm(event) {
 
