@@ -2,6 +2,7 @@ const questionElement = document.getElementById("question");
 const optionsElement = document.getElementById("options");
 const submitButton = document.getElementById("submit");
 const categoryElement = document.getElementById("category")
+
   
   let currentQuestion = 0;
   let score = 0;

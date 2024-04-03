@@ -5,12 +5,30 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+
 body {
 
     display: flex;
     justify-content: flex-start;
     align-items: center;
     height: 100vh;
+}
+
+#toggle {
+
+    justify-content: center;
+    align-items: center;
+}
+
+/* Toggle font added  */
+#toggle {
+    height: 100px;
+    width: 300px;
+
+    height: 100px;
+    width: 300px;
+    margin-left: 50px;
+
 }
 
 #get-started {
@@ -43,6 +61,18 @@ body {
     justify-content: space-between;
 }
 
+/* Toggle container added  */
+.toggle-container{
+    
+    /* padding: 12px;  */
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    height: 100%;
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .jokes-container{
     
