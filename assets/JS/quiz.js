@@ -6,7 +6,7 @@ const listAnswers = document.querySelector(".li-answers")
 let currentQuestion = 0;
 let score = 0;
 let adjustedCategoryIndex;
-
+let numberOfQuestions = localStorage.getItem('numberOfQuestions')
 const category = ['General Knowledge',
 'Entertainment: Books',
  'Entertainment: Film',
@@ -61,7 +61,7 @@ const requestUrl = 'https://opentdb.com/api_category.php';
 
     function fetchQuestionsAndAnswers() {
       const adjustedCategoryIndex = localStorage.getItem('adjCatIndex')
-      const questionURL = `https://opentdb.com/api.php?amount=10&category=${adjustedCategoryIndex}`;
+      const questionURL = `https://opentdb.com/api.php?amount=${numberOfQuestions}&category=${adjustedCategoryIndex}`;
       fetch(questionURL)
         .then(response => response.json())
         .then(data => {
@@ -107,6 +107,9 @@ function selectAnswer(e) {
 function showResult() {
   // Display result however you want
   console.log("Quiz Completed! Your Score: " + score);
+  if (score) {
+
+  }
 }
   
   // Start the quiz
