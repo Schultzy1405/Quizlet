@@ -9,6 +9,7 @@ body {
     display: flex;
     flex-direction: column;
     /* justify-content: flex-start; */
+    justify-content: flex-start;
     align-items: center;
     height: 100vh;
 }
@@ -39,6 +40,9 @@ header {
     /*chacged button's color - Aksana*/
     background-image: linear-gradient(to bottom right, rgb(12, 222, 201), rgb(22, 22, 212), rgb(225, 163, 173),rgb(24, 223, 24), yellow);
     border
+    height: 100px;
+    width: 300px; 
+    margin-left: 50px;
 }
 
 .dark {
