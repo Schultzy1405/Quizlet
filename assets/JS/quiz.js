@@ -1,6 +1,6 @@
 const questionEl = document.getElementById("question");
 const optionsEl = document.getElementById("option");
-const submitButton = document.getElementById("submit");
+const submitBtn = document.getElementById("submit");
 const catDisplay = document.getElementById("cat-display")
 const questionCountertext = document.getElementById("questioncounter");
 
