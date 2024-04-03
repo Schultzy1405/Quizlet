@@ -56,7 +56,7 @@ async function submitModalForm(event) {
     console.log(category); // we got ID of category. we can use it to get a questions
     const numberOfQuestions = numberOfQuestionsInput.val();
     console.log(numberOfQuestions);
-
+    localStorage.setItem('numberOfQuestions', numberOfQuestions)
     if (verifyFields()) {
         // If fields are not filled, do not proceed further
         return;
