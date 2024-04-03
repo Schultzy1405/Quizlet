@@ -2,7 +2,8 @@ const questionEl = document.getElementById("question");
 const optionsEl = document.getElementById("option");
 const submitButton = document.getElementById("submit");
 const catDisplay = document.getElementById("cat-display")
-const listAnswers = document.querySelector(".li-answers")
+const questionCountertext = document.getElementById("questioncounter");
+
 let currentQuestion = 0;
 let score = 0;
 let adjustedCategoryIndex;
@@ -91,8 +92,8 @@ function displayQuestionAndAnswers(questionData) {
 function selectAnswer(e) {
   const selectedOption = e.target;
   const selectedIndex = parseInt(selectedOption.dataset.index);
-  const answerIndex = selectedIndex === 3 ? selectedIndex : -1; // Assuming correct answer index is always 3
-  if (answerIndex !== -1) {
+  const answerIndex = quizData[currentQuestion].answerIndex;
+    if (selectedIndex === answerIndex) {
     score++;
     currentQuestion++
   }
@@ -105,6 +106,10 @@ function selectAnswer(e) {
 }
 
 function showResult() {
+const userNameInput = document.getElementById('#username').value;
+    const scoreDisplay = Document.getElementById('score-display');
+    scoreDisplay.textContent = userNameInput + "'s Quiz Completed! Your Score: " + score;
+ 
   // Display result however you want
   console.log("Quiz Completed! Your Score: " + score);
 }
