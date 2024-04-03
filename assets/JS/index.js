@@ -37,14 +37,14 @@ const getJoke = function() {
         return response.json();
     })
     .then((data) => {
-    console.log(data.value);
+    alert(data.value);
     })
     .catch(error => {
     console.error('There was a problem with your fetch operation:', error);
     });
 }
 
-getJoke()
+
 
 async function submitModalForm(event) {
 
