@@ -55,7 +55,7 @@ const requestUrl = 'https://opentdb.com/api_category.php';
         catDisplay.textContent = `Category: ${categoryName}`;
         fetchQuestionsAndAnswers();
       }
-  
+
       // Call showInfo after fetching the category data
       showInfo();
     });
