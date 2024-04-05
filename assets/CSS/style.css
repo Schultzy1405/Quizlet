@@ -42,10 +42,12 @@ header {
 
 .dark {
         background-color: black;
+        color: white;
 }
 
 .light {
         background-color: white;
+        color: black;
 }
 
 /*in modal*/
@@ -106,6 +108,3 @@ header {
 
 }
 
-footer {
-    color: white;
-}
