@@ -76,20 +76,6 @@ header {
     justify-content: center;
 }
 
-#joke{
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-    height: 100px;
-    width: 300px; 
-}
-
-.joke-button{
-    height: 100px;
-    width: 300px; 
-}
-
 
 /* header {
     display: flex;
@@ -108,4 +94,49 @@ header {
 
 footer {
     color: white;
+}
+
+.joke-modal {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.joke-contents {
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    border-radius: 6px;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+#joke-button {
+    background-color: aqua;
+    border: 2px;
+    border-radius: 30px;
+    text-decoration: none;
+    padding: 10px 20px;
+    color: black;
+    margin-top: 10px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.fist {
+    width: 100px;
+    height: 85px;
+    border-radius: 50%;
+}
+
+.close {
+    position: absolute;
+    right: 14px;
+    font-size: 42px;
+    cursor: default;
 }
