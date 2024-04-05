@@ -6,6 +6,9 @@
 
 }
 #quiz {
+    display: flex;
+    flex-wrap:wrap;
+    flex-direction: column;
     margin: 1px 30px 0px 30px;
     padding: 20px;
     background-color: #359c6c;
@@ -17,13 +20,13 @@
 main {
   height: 100vh;
   background-color: beige;
-  text-align: center;
+
 }
 
 #cat-display {
   border-bottom: solid;
-  text-align: center;
   margin-top: 10px;
+  text-align: center;
 }
 
 li  {
@@ -40,10 +43,10 @@ h1{
   color: #000000;
   border-bottom: double;
 }
-#options {
-    display: grid;
+#option {
+    display: flex;
     gap: 10px;
-    grid-template-columns: repeat(2, 1fr);
+    flex-direction: column;
 }
 
 button{
@@ -64,7 +67,6 @@ button{
 }
 
 button:hover {
-    .btn:hover{
     transition : 1000ms;
     padding: 10px 50px;
     transform : translateY(-0px);
@@ -72,11 +74,29 @@ button:hover {
     color: #0066cc;
     border: solid 2px #0066cc;
     }
-}
+
 #question {
   font-size: 24px;
   border-bottom-style: dashed;
+  margin-top: 10px;
 }
 .li-answers {
   list-style-type: circle;
+}
+#user-name {
+  float: left;
+  color: lightblue;
+}
+label {
+  display: flex;
+  align-items: center;
+  border-bottom: solid;
+  margin: 0px 0px 0px 0px;
+}
+input[type="radio"] {
+  margin-right: 10px;
+  order: -1;
+}
+#quizlet {
+  margin-right: 56px;
 }
