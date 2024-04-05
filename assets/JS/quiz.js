@@ -3,6 +3,7 @@ const optionsEl = document.getElementById("option");
 const submitBtn = document.getElementById("submit");
 const catDisplay = document.getElementById("cat-display")
 const questionCountertext = document.getElementById("questioncounter");
+const userName = document.getElementById("user-name")
 
 const answer1 = document.getElementById("answer1")
 const answer2 = document.getElementById("answer2")
@@ -123,3 +124,9 @@ function handleSubmitQuestionButton(event) {
 
   event.preventDefault();
 }
+
+function showUser() {
+  quizUser = localStorage.getItem('userName')
+  userName.textContent = quizUser
+}
+showUser()
