@@ -100,7 +100,7 @@ function showResult() {
   console.log("Quiz Completed! Your Score: " + score);
   //TODO : finish code below
   const userNameInput = document.getElementById('#username').value;
-  const scoreDisplay = Document.getElementById('score-display');
+  const scoreDisplay = document.getElementById('score-display');
   scoreDisplay.textContent = userNameInput + "'s Quiz Completed! Your Score: " + score;
 
   // Display result however you want
