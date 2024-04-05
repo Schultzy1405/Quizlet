@@ -98,16 +98,15 @@ function showResult() {
   optionsEl.innerHTML = null;
   questionEl.innerHTML = null;
   let score = parseInt(localStorage.getItem('score'));
-  console.log("Quiz Completed! Your Score: " + score);
+  alert ("Quiz Completed! Your Score: " + score);
   //TODO : finish code below
-  const userNameInput = document.getElementById('#username').value;
+  const userNameInput = document.getElementById('#username');
   const scoreDisplay = document.getElementById('score-display');
   scoreDisplay.textContent = userNameInput + "'s Quiz Completed! Your Score: " + score;
 
   // Display result however you want
   console.log("Quiz Completed! Your Score: " + score);
   if (score) {
-
   }
 }
 
