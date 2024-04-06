@@ -14,6 +14,6 @@ if (prefersDarkTheme.matches) {
   document.querySelector('body').classList.remove('light');
 
 } else {
-    document.querySelector('body').classList.add('light');
+  document.querySelector('body').classList.add('light');
   document.querySelector('body').classList.remove('dark');
 } 

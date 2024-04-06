@@ -7,11 +7,24 @@
 
 
 body {
-
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    /* justify-content: flex-start; */
     align-items: center;
     height: 100vh;
+}
+/*added styles for header h1- Aksana*/
+header h1 {
+    color: white;
+    font-size: 24px;
+
+}
+/*added styles for header - Aksana*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
 }
 
 #toggle {
@@ -32,7 +45,6 @@ body {
 }
 
 #get-started {
-
     justify-content: center;
     align-items: center;
 }
@@ -41,21 +53,22 @@ body {
 #get-started {
     height: 100px;
     width: 300px;
-
-    height: 100px;
-    width: 300px; 
     margin-left: 50px;
-
+    /*chacged button's color - Aksana*/
+    background-image: linear-gradient(to bottom right, rgb(12, 222, 201), rgb(22, 22, 212), rgb(225, 163, 173),rgb(24, 223, 24), yellow);
 }
 
 .dark {
         background-color: black;
+        color: white;
 }
 
 .light {
         background-color: white;
+        color: black;
 }
 
+/*in modal*/
 .header-container{
     display: flex;
     justify-content: space-between;
@@ -75,8 +88,7 @@ body {
 }
 
 .jokes-container{
-    
-    /* padding: 12px;  */
+    padding: 12px; 
     box-sizing: border-box;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-image: url(../images/jokes.png);
@@ -111,12 +123,12 @@ body {
 }
 
 
-header {
+/* header {
     display: flex;
-    height: 10%;
+    
     justify-content: end;
     margin: 5px;
-}
+} */
 
 .container-page {
     display: flex;
@@ -125,3 +137,4 @@ header {
     align-items: center;
 
 }
+

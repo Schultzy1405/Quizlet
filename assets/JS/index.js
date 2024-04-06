@@ -13,6 +13,7 @@ $(document).ready(function () {
         .then(function (data) {
             console.log(data);
             const categoryArray = data.trivia_categories;
+            localStorage.setItem('categories', JSON.stringify(categoryArray)); // set categories to local storage - Aksana
             categoryArray.forEach(function(category) {
                 categoryInput.append(
                   $('<option></option>').val(category.id).html(category.name)
@@ -23,10 +24,6 @@ $(document).ready(function () {
         .catch(function (error) {
           console.error('Error fetching categories', error)
         })
-        categoryInput.on('change', function () {
-          const selectedCategory = $(categoryInput).val();
-          localStorage.setItem('selectedCategory', selectedCategory);
-      });
       $('.submit').on('click', submitModalForm);
     });
 
@@ -37,32 +34,44 @@ const getJoke = function() {
         return response.json();
     })
     .then((data) => {
-    console.log(data.value);
+    alert(data.value);
     })
     .catch(error => {
     console.error('There was a problem with your fetch operation:', error);
     });
 }
 
-getJoke()
 
-function submitModalForm(event) {
+async function submitModalForm(event) {
 
     event.preventDefault();
 
     const userName = userNameInput.val();
-    console.log(userName);
+    localStorage.setItem('userName', userName);
     const category = categoryInput.val();
-    console.log(category); // we got ID of category. we can use it to get a questions
+ 
+    localStorage.setItem('selectedCategory', category);
     const numberOfQuestions = numberOfQuestionsInput.val();
     console.log(numberOfQuestions);
-
+    localStorage.setItem('numberOfQuestions', numberOfQuestions)
     if (verifyFields()) {
         // If fields are not filled, do not proceed further
         return;
     }
 
-    window.location.href = "quiz.html"
+    //getting questions with answers
+    const requestUrl = `https://opentdb.com/api.php?amount=${numberOfQuestions}&category=${category}&type=multiple`;
+    await fetch(requestUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+          localStorage.setItem('questions', JSON.stringify({questions:data}));
+          localStorage.setItem('questionNumber', 0);
+          console.log('questions')
+      })
+      localStorage.setItem('score', 0)
+      window.location.href = "quiz.html"
 }
 
 
