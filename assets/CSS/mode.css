@@ -27,3 +27,18 @@
    background-color: var(--color-bg);
    border: 0.25rem solid var(--color-fg);
  }
+
+ .buttonLight{
+   background-color: #ffffff;
+   color:black;
+   border:2px solid black;
+   border-radius: 10px;
+ }
+
+ .buttonDark{
+  background-color: #030101;
+  color:rgb(201, 194, 194);
+  border:2px solid rgb(235, 84, 84);
+  border-radius: 10px;
+
+ }

@@ -13,18 +13,20 @@ body {
     align-items: center;
     height: 100vh;
 }
+
 /*added styles for header h1- Aksana*/
 header h1 {
-    color: white;
+    /* color: white; */
     font-size: 24px;
 
 }
+
 /*added styles for header - Aksana*/
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-   
+
 }
 
 #toggle {
@@ -55,28 +57,28 @@ header {
     width: 300px;
     margin-left: 50px;
     /*chacged button's color - Aksana*/
-    background-image: linear-gradient(to bottom right, rgb(12, 222, 201), rgb(22, 22, 212), rgb(225, 163, 173),rgb(24, 223, 24), yellow);
+    background-image: linear-gradient(to bottom right, rgb(12, 222, 201), rgb(22, 22, 212), rgb(225, 163, 173), rgb(24, 223, 24), yellow);
 }
 
 .dark {
-        background-color: black;
-        color: white;
+    background-color: black;
+    color: white;
 }
 
 .light {
-        background-color: white;
-        color: black;
+    background-color: white;
+    color: black;
 }
 
 /*in modal*/
-.header-container{
+.header-container {
     display: flex;
     justify-content: space-between;
 }
 
 /* Toggle container added  */
-.toggle-container{
-    
+.toggle-container {
+
     /* padding: 12px;  */
     box-sizing: border-box;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -87,8 +89,8 @@ header {
     justify-content: center;
 }
 
-.jokes-container{
-    padding: 12px; 
+.jokes-container {
+    padding: 12px;
     box-sizing: border-box;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-image: url(../images/jokes.png);
@@ -99,7 +101,7 @@ header {
     justify-content: center;
 }
 
-.container-quiz{
+.container-quiz {
     background-image: url(../images/quiz.png);
     height: 100%;
     width: 50vw;
@@ -108,18 +110,18 @@ header {
     justify-content: center;
 }
 
-#joke{
+#joke {
     display: flex;
 
     align-items: center;
     justify-content: center;
     height: 100px;
-    width: 300px; 
+    width: 300px;
 }
 
-.joke-button{
+.joke-button {
     height: 100px;
-    width: 300px; 
+    width: 300px;
 }
 
 
@@ -138,3 +140,23 @@ header {
 
 }
 
+
+.buttonLight {
+    background-color: #ffffff !important;
+    color: black !important;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 1.5%;
+    margin: 3%;
+    width: 25%;
+}
+
+.buttonDark {
+    background-color: #030101 !important;
+    color: rgb(201, 194, 194) !important;
+    border: 2px solid rgb(235, 84, 84);
+    border-radius: 10px;
+    padding: 1.5%;
+    margin: 3%;
+    width: 25%;
+}
