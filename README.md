@@ -1,5 +1,10 @@
 # Our Quizlet Project
 
+![alt text](<Screenshot 2024-04-04 at 7.20.45 PM.png>)
+
+
+
+
 ## Exercise details
  
 when We created this website we thought about different ways on  be able to pass the time and kill  boredom. Throughout the we thought about two things people love laughing and doing trivia. So we decided to put both hand and hand and created a trivia quizlet website  with a sprinkle of jokes and who better to  make fun of  chuck  norris the man himself. 

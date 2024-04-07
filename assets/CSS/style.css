@@ -8,22 +8,20 @@
 body {
     display: flex;
     flex-direction: column;
-    /* justify-content: flex-start; */
     align-items: center;
     height: 100vh;
 }
-/*added styles for header h1- Aksana*/
-header h1 {
-    color: white;
-    font-size: 24px;
 
+header h1 {
+    font-size: 24px;
+    line-height: 100%;
+    margin: 0;
 }
-/*added styles for header - Aksana*/
+
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-   
 }
 
 #get-started {
@@ -35,9 +33,8 @@ header {
 #get-started {
     height: 100px;
     width: 300px;
-    margin-left: 50px;
-    /*chacged button's color - Aksana*/
     background-image: linear-gradient(to bottom right, rgb(12, 222, 201), rgb(22, 22, 212), rgb(225, 163, 173),rgb(24, 223, 24), yellow);
+    background-size: cover
 }
 
 .dark {
@@ -67,6 +64,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-size: cover;
 }
 
 .container-quiz{
@@ -76,6 +74,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-size: cover;
 }
 
 #joke{
@@ -92,14 +91,6 @@ header {
     width: 300px; 
 }
 
-
-/* header {
-    display: flex;
-    
-    justify-content: end;
-    margin: 5px;
-} */
-
 .container-page {
     display: flex;
     justify-content: space-around;
@@ -108,3 +99,145 @@ header {
 
 }
 
+.toggle {
+    border-style: outset;
+    width: 400px;
+    background-color: rgba(76, 175, 80, 0.15)
+  }
+
+
+  /* Styling the Switch button */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+
+  }
+
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+  }
+
+  /* The slider */
+  .slider-box {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(84, 81, 81);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider-box:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider-box {
+    background-color: rgb(205, 194, 121);
+  }
+
+  input:focus + .slider-box {
+    box-shadow: 0 0 1px rgb(29, 128, 210);
+  }
+
+  input:checked + .slider-box:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  /* Rounded sliders */
+  .slider-box.round {
+    border-radius: 34px;
+  }
+
+  .slider-box.round:before {
+    border-radius: 50%;
+
+  }
+
+  .row {
+    margin: 20px;
+    display: flex;
+  }
+  .col {
+    margin: 20px;
+  }
+
+  .toggle {
+    border-style: outset;
+    width: 400px;
+    background-color: rgba(76, 175, 80, 0.15)
+  }
+
+footer {
+    color: white;
+}
+
+.joke-modal {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.joke-contents {
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    border-radius: 6px;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+#joke-button {
+    background-color: aqua;
+    border: 2px;
+    border-radius: 30px;
+    text-decoration: none;
+    padding: 10px 20px;
+    color: black;
+    margin-top: 10px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.fist {
+    width: 100px;
+    height: 85px;
+    border-radius: 50%;
+}
+
+.close {
+    position: absolute;
+    right: 14px;
+    font-size: 42px;
+    cursor: default;
+}
+
+  @media screen and (max-width:992px) {
+    #get-started,
+    #joke {
+        width: 200px;
+    }
+}

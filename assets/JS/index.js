@@ -89,3 +89,11 @@ function verifyFields() {
     }
     return false;
   }
+
+document.getElementById('joke-button').addEventListener('click',function() {
+    document.querySelector('.joke-modal').style.display = 'flex';
+});
+
+document.querySelector('.close').addEventListener('click', function() {
+    document.querySelector('.joke-modal').style.display = 'none';
+});

@@ -1,15 +1,24 @@
-
-
-
 const prefersDarkTheme = window.matchMedia('(prefers-color-scheme: light)');
 
-console.log('prefersDarkTheme',prefersDarkTheme);
-console.log('prefersDarkTheme 2', window.matchMedia('(prefers-color-scheme'));
-if (prefersDarkTheme.matches) {
-  document.querySelector('body').classList.add('dark');
-  document.querySelector('body').classList.remove('light');
+const body = document.querySelector('body');
 
+// Function to toggle between dark and light themes
+function toggleTheme() {
+    if (body.classList.contains('dark')) {
+        body.classList.remove('dark');
+        body.classList.add('light');
+    } else {
+        body.classList.remove('light');
+        body.classList.add('dark');
+    }
+}
+
+// Toggle theme when the button is clicked
+document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+
+// Set initial theme based on user's preference
+if (prefersDarkTheme.matches) {
+    body.classList.add('dark');
 } else {
-  document.querySelector('body').classList.add('light');
-  document.querySelector('body').classList.remove('dark');
-} 
+    body.classList.add('light');
+}
