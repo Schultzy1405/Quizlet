@@ -106,8 +106,6 @@ function showResult() {
 
   // Display result however you want
   console.log("Quiz Completed! Your Score: " + score);
-  if (score) {
-  }
 }
 
 submitBtn.addEventListener("click", handleSubmitQuestionButton);
