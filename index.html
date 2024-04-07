@@ -70,26 +70,24 @@
 
 
         <div class="jokes-container">
-            <div class="joke">
-                <button onclick="getJoke();" id="joke" data-target="modal1" class="btn modal-trigger">New Chuck Norris Joke</button>
+            <button id="joke-button">Tell Me A Joke First!</button>
 
-                <div id="modal1" class="modal">
-                    <div class="modal-content">
-                        <h4>Modal Header</h4>
-                        <p>A bunch of text</p>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-                    </div>
+            <div class="joke-modal">
+                <div class="joke-contents">
+                    <div class="close">X</div>
+                    <img class="fist" src="assets\images\fist.jpg" alt="closed fist ready to punch">
+                    <form action="">
+                        <h4>PROCEED WITH CAUTION</h4>
+                        <p>*Jokes may be inappropriate for younger audiences*</p>
+                        <a onclick="getJoke();" id="joke-button">Chuck Norris Joke</a>
+                    </form>    
                 </div>
-
-                <div class="joke"></div>
             </div>
         </div>
-       
+          
     </div>
     <footer>
-        <h6>Made with ❤️ </h6>
+        <h6>Made with ❤️</h6>
     </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
